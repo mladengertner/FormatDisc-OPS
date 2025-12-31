@@ -1,0 +1,9 @@
+{
+  "name": "FormatDisc OPS Integrator",
+  "description": "A world-class engineering tool for mapping Operational Specification (OPS) artifacts to interactive simulations, ensuring architectural truth and transparency in development.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

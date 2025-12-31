@@ -1,0 +1,83 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* THE ARCHITECT'S VOID: Absolute Black, Signal Green, Bone White */
+  --ink: #000000;
+  --bone: #ffffff;
+  --signal: #00ff41;
+  --signal-muted: rgba(0, 255, 65, 0.12);
+  --signal-faint: rgba(0, 255, 65, 0.04);
+  
+  --fd-bg: var(--ink);
+  --fd-panel: #000000;
+  --fd-panel2: #050505;
+  --fd-border: rgba(0, 255, 65, 0.2);
+  
+  --fd-text: var(--bone);
+  --fd-muted: rgba(255, 255, 255, 0.5);
+  --fd-faint: rgba(255, 255, 255, 0.2);
+  --fd-danger: #ff3131;
+
+  /* MOTION LAW 1.0 CONSTANTS */
+  --ease-human: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-default: 800ms;
+  
+  /* DYNAMIC KERNEL PROPS (Managed via React/Redux) */
+  --drift-x: 0px;
+  --drift-y: 0px;
+  --pulse-opacity: 0.15;
+  --signal-energy: 0;
+}
+
+body {
+  background-color: var(--ink) !important;
+  color: var(--fd-text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-image: none !important;
+}
+
+.motion-law-root {
+  transition: transform var(--duration-default) var(--ease-human);
+  transform: translate(var(--drift-x), var(--drift-y));
+}
+
+.architect-card {
+  background-color: #000000;
+  border: 1px solid var(--fd-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.architect-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, var(--signal-faint) 0%, transparent 70%);
+  opacity: var(--pulse-opacity);
+  transition: opacity 0.5s var(--ease-human);
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: #111; border: 1px solid var(--fd-border); }
+::-webkit-scrollbar-thumb:hover { background: var(--signal); }
+
+@keyframes entryUp {
+  from { opacity: 0; transform: translateY(10px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-entry {
+  animation: entryUp 500ms var(--ease-human) both;
+}
+
+selection {
+  background: var(--signal-muted);
+  color: var(--bone);
+}

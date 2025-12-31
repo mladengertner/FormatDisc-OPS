@@ -1,0 +1,17 @@
+
+{
+  "version": "micro-ux.v12.6",
+  "rules": {
+    "ledgerPulseOnAppend": true,
+    "shakeOnPhaseBreach": true,
+    "glowOnPhaseCommit": true,
+    "typingDotsDuringAI": true,
+    "dirtyStatePulse": true
+  },
+  "tokens": {
+    "neonBlue": "#3b82f6",
+    "neonGreen": "#22c55e",
+    "neonYellow": "#eab308",
+    "danger": "#ef4444"
+  }
+}
